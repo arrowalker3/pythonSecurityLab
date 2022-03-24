@@ -56,7 +56,7 @@ def session(messages):
     password = simple_prompt("What is your password? ")
 
     interact_ = interact.Interact(username, password, messages)
-    print(f"\nWelcome, {username}. Please select an option:\n")
+    print(f"\nWelcome, {interact_._username}. Please select an option:\n")
     display_options()
 
     options = {
@@ -70,7 +70,7 @@ def session(messages):
     }
 
     while session_open:
-        option = input(f"{username}> ")
+        option = input(f"{interact_._username}> ")
         exec(options.get(option, "print(f\"Unknown option: \'{option}\'\");"))
 
 ####################################################

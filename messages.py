@@ -7,7 +7,7 @@
 #    This class stores the notion of a collection of messages
 ########################################################################
 
-import control, message
+import message
 
 ##################################################
 # MESSAGES
@@ -27,18 +27,18 @@ class Messages:
     # MESSAGES :: DISPLAY
     # Display the list of messages
     ##################################################
-    def display(self):
+    def display(self, subjectControlLevel):
         for m in self._messages:
-            m.display_properties()
+            m.display_properties(subjectControlLevel)
 
     ##################################################
     # MESSAGES :: SHOW
     # Show a single message
     ##################################################
-    def show(self, id):
+    def show(self, id, subjectControlLevel):
         for m in self._messages:
             if m.get_id() == id:
-                m.display_text()
+                m.display_text(subjectControlLevel)
                 return True
         return False
 
@@ -46,19 +46,19 @@ class Messages:
     # MESSAGES :: UPDATE
     # Update a single message
     ##################################################
-    def update(self, id, text):
+    def update(self, id, text, subjectControlLevel):
         for m in self._messages:
             if m.get_id() == id:
-                m.update_text(text)
+                m.update_text(text, subjectControlLevel)
 
     ##################################################
     # MESSAGES :: REMOVE
     # Remove a single message
     ##################################################
-    def remove(self, id):
+    def remove(self, id, subjectControlLevel):
         for m in self._messages:
             if m.get_id() == id:
-                m.clear()
+                m.clear(subjectControlLevel)
 
     ##################################################
     # MESSAGES :: ADD

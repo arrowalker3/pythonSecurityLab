@@ -7,9 +7,7 @@
 #    This class stores the notion of Bell-LaPadula
 ########################################################################
 
-# enum of confidentiality levels
-import enum
-
+# Map showing confidentiality levels
 Level = {
     'Public': 0,
     'Confidential': 1,
@@ -18,7 +16,10 @@ Level = {
 }
 
 def getLevel(stringLevel):
-    return Level[stringLevel]
+    if isinstance(stringLevel, int) is True:
+        return stringLevel
+    else:
+        return Level[stringLevel]
 
 
 class Control:
